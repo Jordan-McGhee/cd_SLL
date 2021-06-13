@@ -16,6 +16,7 @@ class SLL {
 
     // Add Front
     // Write a method that accepts a value and create a new node, assign it to the list head, and return a pointer to the new head node.
+
     addFront(value) {
         // instantiate a new node using our class
         let newNode = new Node(value)
@@ -28,6 +29,7 @@ class SLL {
 
     // Remove Front
     // Write a method to remove the head node and return the new list head node. If the list is empty, return null.
+
     removeFront(){
         // check to see if there's an object stored at this.head
         if (this.head){
@@ -40,6 +42,7 @@ class SLL {
 
     // Front
     // Write a method to return the value (not the node) at the head of the list. If the list is empty, return null.
+
     front(){
         // checks for object stored at this.head
         if(this.head){
@@ -92,6 +95,53 @@ class SLL {
             runner = runner.next
         }
         return nodeValues
+    }
+
+    // SList: Max
+    // Create method max() to return list’s largest val.
+
+    max(){
+        let runner = this.head
+        let maxVal = runner.value
+
+        while(runner){
+            if (runner.value > maxVal){
+                maxVal = runner.value
+            }
+            runner = runner.next
+        }
+        return maxVal
+    }
+
+    // SList: Min
+    // Create min(node) to return list’s smallest val.
+
+    min(){
+        let runner = this.head
+        let minVal = runner.value
+
+        while(runner){
+            if (runner.value < minVal){
+                minVal = runner.value
+            }
+            runner = runner.next
+        }
+        return minVal
+    }
+
+    // SList: Average
+    // Create average() to return average val.
+
+    average(){
+        let total = 0
+        let runner = this.head
+
+        while(runner){
+            total += runner.value
+            count += 1
+            runner = runner.next
+        }
+        return total/this.length()
     }
 }
 
