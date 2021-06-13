@@ -48,5 +48,19 @@ class SLL {
         }
         return null
     }
+
+    // Contains
+    // Add a method contains(value) to your SLL class, which is given a value as a parameter.  Return a boolean (true/false); true, if the list possesses a node that contains the provided value.
+
+    contains(value){
+        let check = this.head
+        while(check){
+            if(check.value == value){
+                return true
+            }
+            check = check.next
+        }
+        return false
+    }
 }
 
