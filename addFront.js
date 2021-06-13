@@ -62,5 +62,18 @@ class SLL {
         }
         return false
     }
+
+    // Length
+    // Create a new SLL method length() that returns number of nodes in that list.
+
+    length(){
+        let count = 0
+        let runner = this.head
+        while (runner){
+            count += 1
+            runner = runner.next
+        }
+        return count
+    }
 }
 
