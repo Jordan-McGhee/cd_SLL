@@ -75,5 +75,23 @@ class SLL {
         }
         return count
     }
+
+    // Display
+    // Create display() that returns a string containing all list values. Build what you wish console.log(myList) did!
+
+    display(){
+        let nodeValues = ""
+        let runner = this.head
+
+        while(runner){
+            if(runner.next){
+                nodeValues += runner.value + ", "
+            } else {
+                nodeValues += runner.value + "."
+            }
+            runner = runner.next
+        }
+        return nodeValues
+    }
 }
 
