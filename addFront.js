@@ -49,6 +49,8 @@ class SLL {
             // if so, returns the value held for that object
             return this.head.value
         }
+
+        // if the ^ condition isn't met, that means the list is empty. We return null
         return null
     }
 
@@ -56,13 +58,22 @@ class SLL {
     // Add a method contains(value) to your SLL class, which is given a value as a parameter.  Return a boolean (true/false); true, if the list possesses a node that contains the provided value.
 
     contains(value){
+        // create a variable that checks the object at the front of the list. If there is a head, check becomes that object. If not, check == null
         let check = this.head
+
+        // this loop will continue as long as there is a value in this.head — if check == null, we exit this loop
         while(check){
+
+            // while iterating over the objects in this list, if at any point our check value == the value we're looking for, return true and exit the function
             if(check.value == value){
                 return true
             }
+
+            // if not, change the value of check (this.head) to check.next
             check = check.next
         }
+
+        // if we exit the while loop and still haven't found the value we're looking for, return false
         return false
     }
 
@@ -70,12 +81,19 @@ class SLL {
     // Create a new SLL method length() that returns number of nodes in that list.
 
     length(){
+        // create two variables, counter variable and set our runner to the head of our SLL
         let count = 0
         let runner = this.head
+
+        // while runner(this.head) != null, enter this loop
         while (runner){
+
+            // increment our count variable, and set runner(this.head) to runner.next
             count += 1
             runner = runner.next
         }
+
+        // after we exit the loop, return our counter variable
         return count
     }
 
@@ -83,17 +101,32 @@ class SLL {
     // Create display() that returns a string containing all list values. Build what you wish console.log(myList) did!
 
     display(){
+
+        // create two variables, one an empty string to concatenate the values stored in our SLL, the other our runner to navigate through the list
         let nodeValues = ""
         let runner = this.head
 
+        // while runner != null
         while(runner){
+
+            // check to see if runner.next != null
             if(runner.next){
+
+                // if there is a next value in the SLL, concatenate the value at runner and a "," and a "(space)"
                 nodeValues += runner.value + ", "
+
+                // if not, that means the current object is the last in the list
             } else {
+
+                // so we concatenate the runner value and a period.
                 nodeValues += runner.value + "."
             }
+
+            // change the runner variable to the next object in the list
             runner = runner.next
         }
+
+        // return our sentence at the end
         return nodeValues
     }
 
@@ -101,15 +134,26 @@ class SLL {
     // Create method max() to return list’s largest val.
 
     max(){
+
+        // create two variables, our runner and a variable to keep track of the largest value in the list. We'll start with the value at this.head (this is the same as saying max = list[0])
         let runner = this.head
         let maxVal = runner.value
 
+        // while runner != null
         while(runner){
+
+            // check if the value at where runner is currently is larger than the value stored in maxVal
             if (runner.value > maxVal){
+
+                // if so, update maxVal
                 maxVal = runner.value
             }
+
+            // move runner down the list
             runner = runner.next
         }
+
+        // return the variable 
         return maxVal
     }
 
@@ -117,6 +161,8 @@ class SLL {
     // Create min(node) to return list’s smallest val.
 
     min(){
+
+        // same steps from max, just look for smallest value
         let runner = this.head
         let minVal = runner.value
 
@@ -133,14 +179,22 @@ class SLL {
     // Create average() to return average val.
 
     average(){
+
+        // create total variable to keep track of the amount of each value in our list added together, and our runner variable to move through the list
         let total = 0
         let runner = this.head
 
+        // while runner != null
         while(runner){
+
+            // add the value at runner to our total variable
             total += runner.value
-            count += 1
+
+            // set runner to the next object in the list
             runner = runner.next
         }
+
+        // return total divided by the length of this(our list). We can do this with dot notation and the length function we wrote above
         return total/this.length()
     }
 }
